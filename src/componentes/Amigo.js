@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { AmigosContext } from "../context/AmigosContext";
+import { FaPencil } from "react-icons/fa6";
+import { FaStar, FaTimes } from "react-icons/fa";
 
 export const Amigo = (props) => {
   const { amigo } = props;
@@ -18,11 +20,11 @@ export const Amigo = (props) => {
       <article className="amigo">
         <div className="row">
           <div className="col-12 text-right">
-            <i className="fas fa-pen" onClick={actualizarAmigo}></i>
-            <i
-              className="fas fa-times ml-1"
+            <FaPencil onClick={actualizarAmigo}></FaPencil>
+            <FaTimes
+              className="ml-1"
               onClick={() => eliminarAmigo(amigo)}
-            ></i>
+            ></FaTimes>
           </div>
           <div className="col-12">
             <ul>
@@ -31,7 +33,7 @@ export const Amigo = (props) => {
               <li className="list-unstyled">
                 Valoración:
                 {new Array(amigo.valoracion).fill("").map((valoracion, i) => (
-                  <i key={i} className="fas fa-star"></i>
+                  <FaStar key={i}></FaStar>
                 ))}
               </li>
             </ul>
