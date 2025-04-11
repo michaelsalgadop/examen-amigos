@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AmigosContext } from "../context/AmigosContext";
 import { FaPencil } from "react-icons/fa6";
 import { FaStar, FaTimes } from "react-icons/fa";
+import { Col, Row } from "react-bootstrap";
 
 export const Amigo = (props) => {
   const { amigo } = props;
@@ -16,17 +17,17 @@ export const Amigo = (props) => {
     setAmigoEditar(amigo);
   };
   return (
-    <div className="col-4">
+    <Col xs={4}>
       <article className="amigo">
-        <div className="row">
-          <div className="col-12 text-right">
+        <Row>
+          <Col xs={12} className="text-right">
             <FaPencil onClick={actualizarAmigo}></FaPencil>
             <FaTimes
               className="ml-1"
               onClick={() => eliminarAmigo(amigo)}
             ></FaTimes>
-          </div>
-          <div className="col-12">
+          </Col>
+          <Col xs={12}>
             <ul>
               <li className="list-unstyled">Nombre: {amigo.nombre}</li>
               <li className="list-unstyled">Apellido: {amigo.apellido}</li>
@@ -37,9 +38,9 @@ export const Amigo = (props) => {
                 ))}
               </li>
             </ul>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </article>
-    </div>
+    </Col>
   );
 };

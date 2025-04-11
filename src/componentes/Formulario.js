@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useFormulario } from "../hooks/useFormulario";
 import { AmigosContext } from "../context/AmigosContext";
+import { Button, Col, Form } from "react-bootstrap";
 
 export const Formulario = () => {
   const {
@@ -14,7 +15,7 @@ export const Formulario = () => {
   const { setData, datosFormulario } = useFormulario(amigo);
 
   return (
-    <form
+    <Form
       className="row"
       onSubmit={(e) => {
         e.preventDefault();
@@ -31,37 +32,37 @@ export const Formulario = () => {
         }
       }}
     >
-      <div className="col-sm-3">
-        <label className="label-amigo" htmlFor="nombre">
+      <Col sm={3}>
+        <Form.Label className="label-amigo" htmlFor="nombre">
           Nombre:
-        </label>
-        <input
+        </Form.Label>
+        <Form.Control
           type="text"
           name="nombre"
           id="nombre"
           value={datosFormulario.nombre}
           onChange={setData}
-          className="campo-amigo form-control"
+          className="campo-amigo"
         />
-      </div>
-      <div className="col-sm-3">
-        <label className="label-amigo" htmlFor="apellido">
+      </Col>
+      <Col sm={3}>
+        <Form.Label className="label-amigo" htmlFor="apellido">
           Apellido:
-        </label>
-        <input
+        </Form.Label>
+        <Form.Control
           type="text"
           name="apellido"
           value={datosFormulario.apellido}
           id="apellido"
           onChange={setData}
-          className="campo-amigo form-control"
+          className="campo-amigo"
         />
-      </div>
-      <div className="col-sm-2">
-        <label className="label-amigo" htmlFor="valoracion">
+      </Col>
+      <Col sm={2}>
+        <Form.Label className="label-amigo" htmlFor="valoracion">
           Valoración:
-        </label>
-        <select
+        </Form.Label>
+        <Form.Select
           name="valoracion"
           id="valoracion"
           onChange={setData}
@@ -72,20 +73,20 @@ export const Formulario = () => {
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
-        </select>
-      </div>
-      <div className="col">
-        <button type="submit" className="btn btn-primary">
+        </Form.Select>
+      </Col>
+      <Col>
+        <Button type="submit" variant="primary">
           {datosFormulario.id ? "Editar" : "Crear"}
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
-          className="btn btn-primary"
+          variant="primary"
           onClick={() => setFormularioAbierto(!formularioAbierto)}
         >
           Cancelar
-        </button>
-      </div>
-    </form>
+        </Button>
+      </Col>
+    </Form>
   );
 };

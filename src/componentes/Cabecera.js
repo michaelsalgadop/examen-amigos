@@ -2,29 +2,30 @@ import { useContext, useState } from "react";
 import { Formulario } from "./Formulario";
 import { Titulo } from "./Titulo";
 import { AmigosContext } from "../context/AmigosContext";
+import { Button, Col, Row } from "react-bootstrap";
 
 export const Cabecera = (props) => {
   const { setFormularioAbierto, formularioAbierto } = useContext(AmigosContext);
   return (
     <header>
       <Titulo></Titulo>
-      <div className="row form-group">
-        <div className="col">
+      <Row className="form-group">
+        <Col>
           {formularioAbierto ? (
             <Formulario
               setFormularioAbierto={setFormularioAbierto}
               formularioAbierto={formularioAbierto}
             ></Formulario>
           ) : (
-            <button
-              className="btn btn-primary"
+            <Button
+              variant="primary"
               onClick={() => setFormularioAbierto(!formularioAbierto)}
             >
               Crear amigo
-            </button>
+            </Button>
           )}
-        </div>
-      </div>
+        </Col>
+      </Row>
     </header>
   );
 };

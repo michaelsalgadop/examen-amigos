@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { AmigosContext } from "../context/AmigosContext";
-
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 export const Titulo = () => {
   const { listaAmigos } = useContext(AmigosContext);
   return (
-    <div className="row">
-      <h1 className="col">Gestión de mis {listaAmigos.length} amigos</h1>
-    </div>
+    <Row>
+      <Col as="h1">Gestión de mis {listaAmigos.length} amigos</Col>
+    </Row>
   );
 };

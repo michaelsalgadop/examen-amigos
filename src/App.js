@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Amigos } from "./componentes/Amigos";
 import { Cabecera } from "./componentes/Cabecera";
 import { AmigosContext } from "./context/AmigosContext";
+import { Container } from "react-bootstrap";
 
 function App() {
   const [listaAmigos, setListaAmigos] = useState([]);
@@ -96,12 +97,12 @@ function App() {
         setAmigoEditar,
       }}
     >
-      <div className="container">
+      <Container className="container">
         <Cabecera></Cabecera>
         <main>
           <Amigos></Amigos>
         </main>
-      </div>
+      </Container>
     </AmigosContext.Provider>
   );
 }
