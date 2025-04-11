@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --color-primario: #483d8b;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+label.label-amigo {
+  margin-bottom: 0;
+}
+button.btn-primary,
+button.btn-primary:hover,
+button.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: var(--color-primario);
+  border-color: var(--color-primario);
+}
+input.campo-amigo,
+select.campo-amigo {
+  border-color: var(--color-primario);
+}
+.amigo {
+  background-color: var(--color-primario);
+  border-radius: 20px;
+  padding: 15px;
+  color: #fff;
+  margin-bottom: 15px;
+}
